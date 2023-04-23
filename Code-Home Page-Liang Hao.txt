@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping Mall Navigation System</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Add any necessary CSS files -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<!-- Add any necessary header elements, such as a logo or search bar -->
+	</header>
+
+	<nav>
+		<!-- Add a navigation menu for easy access to different sections of the website -->
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#bulletin">Bulletin Board</a></li>
+			<li><a href="#commodity">Commodity Center</a></li>
+			<li><a href="#info">Shopping Mall Information</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<section id="home">
+			<!-- Add content for the home page -->
+			<h1>Welcome to the Shopping Mall Navigation System</h1>
+			<p>Find your way around the mall with ease using our mobile navigation system. Our system allows you to browse different stores and find your way to your favorite stores quickly and easily. Start your shopping journey today!</p>
+		</section>
+
+		<section id="bulletin">
+			<!-- Add a bulletin board with any relevant information -->
+			<h2>Bulletin Board</h2>
+			<ul>
+				<li><a href="#">Store Sale: 20% off all items!</a></li>
+				<li><a href="#">New Store: Check out our latest addition!</a></li>
+				<li><a href="#">Mall Hours: Extended hours for the holiday season</a></li>
+			</ul>
+		</section>
+
+		<section id="commodity">
+			<!-- Add a commodity center for browsing and purchasing items -->
+			<h2>Commodity Center</h2>
+			<ul>
+				<li>
+					<a href="#">
+						<img src="P1.png" alt="Item 1">
+						<h3>Clothing brand</h3>
+						<p>$19-80</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="P2.png" alt="Item 2">
+						<h3>Daily necessities</h3>
+						<p>$2-40</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="P3.png" alt="Item 3">
+						<h3>Food</h3>
+						<p>$1-30</p>
+					</a>
+				</li>
+			</ul>
+		</section>
+
+		<section id="info">
+			<!-- Add information about the shopping mall, such as location and hours -->
+			<h2>Shopping Mall Information</h2>
+			<ul>
+				<li><strong>Location:</strong> 123 Main Street</li>
+				<li><strong>Phone:</strong> (555) 555-5555</li>
+				<li><strong>Hours:</strong> Monday-Saturday: 10am-9pm
