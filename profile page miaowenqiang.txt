@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Personal Information</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		form {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			grid-gap: 10px;
+			margin-bottom: 20px;
+		}
+		label {
+			font-weight: bold;
+		}
+		input[type="text"], textarea {
+			width: 100%;
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		input[type="submit"], input[type="reset"] {
+			padding: 5px;
+			border-radius: 4px;
+			cursor: pointer;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+		}
+		input[type="submit"]:hover, input[type="reset"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>Personal Information</h1>
+	<form>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" value="John Doe">
+		<label for="email">Email:</label>
+		<input type="text" id="email" name="email" value="john.doe@example.com">
+		<label for="address">Address:</label>
+		<textarea id="address" name="address" rows="3">123 Main St, Anytown, USA</textarea>
+		<label for="phone">Phone:</label>
+		<input type="text" id="phone" name="phone" value="(555) 555-1234">
+		<label for="birthdate">Birthdate:</label>
+		<input type="text" id="birthdate" name="birthdate" value="01/01/1980">
+		<input type="submit" value="Save">
+		<input type="reset" value="Reset">
+	</form>
+	<h2>Other Information</h2>
+	<p>Here's some other information about me...</p>
+</body>
+</html>
