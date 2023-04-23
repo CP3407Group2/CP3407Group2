@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mall Information Page</title>
+  </head>
+  <body>
+    <header>
+      <h1>Mall Information Page</h1>
+    </header>
+
+    <!-- Latest Mall Information Content -->
+    <section>
+      <h2>Latest Mall Information Content</h2>
+      <p>Insert latest mall information here</p>
+    </section>
+
+    <!-- Keyword Search -->
+    <section>
+      <h2>Keyword Search</h2>
+      <input type="text" id="search" placeholder="Search" />
+      <button onclick="search()">Search</button>
+    </section>
+
+    <!-- Mall Shop Page -->
+    <section>
+      <h2>Mall Shop Page</h2>
+      <ul>
+        <li><a href="#shop1">Shop 1</a></li>
+        <li><a href="#shop2">Shop 2</a></li>
+        <li><a href="#shop3">Shop 3</a></li>
+        <!-- add more shops as needed -->
+      </ul>
+    </section>
+
+    <!-- Shop Details and Price Comparison -->
+    <section id="shop1">
+      <h2>Shop 1</h2>
+      <p>Location: Shop 1 location</p>
+      <p>Other Information: Insert other information here</p>
+      <h3>Price Comparison</h3>
+      <table>
+        <tr>
+          <th>Product Name</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Product 1</td>
+          <td>$10.00</td>
+        </tr>
+        <tr>
+          <td>Product 2</td>
+          <td>$20.00</td>
+        </tr>
+        <!-- add more products as needed -->
+      </table>
+    </section>
+
+    <!-- add more sections for other shops as needed -->
+
+    <script>
+      function search() {
+        const query = document.getElementById("search").value.toLowerCase();
+        const sections = document.getElementsByTagName("section");
+        for (let i = 0; i < sections.length; i++) {
+          const section = sections[i];
+          const sectionTitle = section.querySelector("h2").textContent.toLowerCase();
+          if (sectionTitle.includes(query)) {
+            section.style.display = "block";
+          } else {
+            section.style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
+
