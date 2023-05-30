@@ -1,4 +1,4 @@
-<?php require_once('./config.php') ?>
+<?php require_once('../config.php') ?>
 <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
  <?php require_once('inc/header.php') ?>
@@ -38,14 +38,14 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="./login.php" class="h1 text-decoration-none"><b>Client Login</b></a>
+      <a href="./login.php" class="h1"><b>Vendor Login</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form id="cclogin-frm" action="" method="post">
+      <form id="vlogin-frm" action="" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" autofocus placeholder="Email">
+          <input type="text" class="form-control" name="username" autofocus placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -69,7 +69,7 @@
             <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
           </div>
           <div class="col-12 text-center">
-          <a href="<?= base_url.'./register.php' ?>">Create an Account</a>
+          <a href="<?= base_url.'vendor/register.php' ?>">Create an Account</a>
           </div>
           <!-- /.col -->
         </div>
@@ -97,7 +97,7 @@
 <script>
   $(function(){
     end_loader();
-    $('#cclogin-frm').submit(function(e){
+    $('#vlogin-frm').submit(function(e){
         e.preventDefault();
         var _this = $(this)
             $('.err-msg').remove();
@@ -110,7 +110,7 @@
             }
         start_loader();
         $.ajax({
-            url:_base_url_+"classes/Login.php?f=login_client",
+            url:_base_url_+"classes/Login.php?f=login_vendor",
             data: new FormData($(this)[0]),
             cache: false,
             contentType: false,
@@ -127,7 +127,7 @@
             },
             success:function(resp){
                 if(typeof resp =='object' && resp.status == 'success'){
-                    location.href= './';
+                    location.href= './login.php';
                 }else if(resp.status == 'failed' && !!resp.msg){
                     el.addClass('alert-danger').text(resp.msg);
                     _this.prepend(el)

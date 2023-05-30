@@ -1,4 +1,4 @@
-<?php require_once('./config.php') ?>
+<?php require_once('../config.php') ?>
 <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
  <?php require_once('inc/header.php') ?>
@@ -51,43 +51,38 @@
                     <div class="card-body">
                     <p class="login-box-msg">Sign in to start your session</p>
 
-                    <form id="cregister-frm" action="" method="post">
+                    <form id="vregister-frm" action="" method="post">
                         <input type="hidden" name="id">
                         <div class="row">
-                            <div class="form-group col-md-4">
-                                <label for="firstname" class="control-label">First Name</label>
-                                <input type="text" id="firstname" autofocus name="firstname" class="form-control form-control-sm form-control-border" required>
+                            <div class="form-group col-md-6">
+                                <label for="shop_name" class="control-label">Shop Name</label>
+                                <input type="text" id="shop_name" autofocus name="shop_name" class="form-control form-control-sm form-control-border" required>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="middlename" class="control-label">Middle Name</label>
-                                <input type="text" id="middlename" name="middlename" class="form-control form-control-sm form-control-border" placeholder="optional">
+                            <div class="form-group col-md-6">
+                                <label for="shop_owner" class="control-label">Shop Owner Fullname</label>
+                                <input type="text" id="shop_owner" name="shop_owner" class="form-control form-control-sm form-control-border" required>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="lastname" class="control-label">Last Name</label>
-                                <input type="text" id="lastname" name="lastname" class="form-control form-control-sm form-control-border" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="gender" class="control-label">Gender</label>
-                                <select type="text" id="gender" name="gender" class="form-control form-control-sm form-control-border select2" required>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label for="contact" class="control-label">Contact #</label>
                                 <input type="text" id="contact" name="contact" class="form-control form-control-sm form-control-border" required>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label for="address" class="control-label">Address</label>
-                                <textarea rows="3" id="address" name="address" class="form-control form-control-sm rounded-0" required></textarea>
+                            <div class="form-group col-md-6">
+                                <label for="shop_type_id" class="control-label">Shop Type</label>
+                                <select type="text" id="shop_type_id" name="shop_type_id" class="form-control form-control-sm form-control-border select2" required>
+                                    <option value="" disabled selected></option>
+                                    <?php 
+                                    $types = $conn->query("SELECT * FROM `shop_type_list` where delete_flag = 0 and `status` = 1 order by `name` asc ");
+                                    while($row = $types->fetch_assoc()):
+                                    ?>
+                                    <option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="email" class="control-label">Email</label>
-                                <input type="email" id="email" name="email" class="form-control form-control-sm form-control-border" required>
+                                <label for="username" class="control-label">Username</label>
+                                <input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" required>
                             </div>
                         </div>
                         <div class="row">
@@ -116,7 +111,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="logo" class="control-label">Image</label>
+                                <label for="logo" class="control-label">Shop Logo</label>
                                 <input type="file" id="logo" name="img" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" required>
                             </div>
                         </div>
@@ -134,7 +129,7 @@
                                 <button type="submit" class="btn btn-primary btn-block btn-flat">Create Account</button>
                             </div>
                             <div class="col-12 text-center">
-                            <a href="<?= base_url.'./login.php' ?>">Already have an Account</a>
+                            <a href="<?= base_url.'vendor/login.php' ?>">Already have an Account</a>
                             </div>
                         <!-- /.col -->
                         </div>
@@ -197,7 +192,7 @@
         }
     })
 
-    $('#cregister-frm').submit(function(e){
+    $('#vregister-frm').submit(function(e){
         e.preventDefault();
         var _this = $(this)
             $('.err-msg').remove();
@@ -207,7 +202,7 @@
         if(_this[0].checkValidity() == false){
             _this[0].reportValidity();
             return false;
-        }
+            }
         if($('#password').val() != $('#cpassword').val()){
             el.addClass('alert-danger').text('Password does not match.')
             _this.append(el)
@@ -217,7 +212,7 @@
         }
         start_loader();
         $.ajax({
-            url:_base_url_+"classes/Users.php?f=save_client",
+            url:_base_url_+"classes/Users.php?f=save_vendor",
             data: new FormData($(this)[0]),
             cache: false,
             contentType: false,
